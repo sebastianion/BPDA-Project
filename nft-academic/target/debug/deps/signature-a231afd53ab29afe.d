@@ -1,0 +1,12 @@
+/home/ubuntu/Desktop/master/BPDA/project/BPDA-Project/nft-academic/target/debug/deps/libsignature-a231afd53ab29afe.rmeta: /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/lib.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/hazmat.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/encoding.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/error.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/keypair.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/signer.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/verifier.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/../README.md
+
+/home/ubuntu/Desktop/master/BPDA/project/BPDA-Project/nft-academic/target/debug/deps/signature-a231afd53ab29afe.d: /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/lib.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/hazmat.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/encoding.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/error.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/keypair.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/signer.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/verifier.rs /home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/../README.md
+
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/lib.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/hazmat.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/encoding.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/error.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/keypair.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/signer.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/verifier.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-6f17d22bba15001f/signature-2.2.0/src/../README.md:
