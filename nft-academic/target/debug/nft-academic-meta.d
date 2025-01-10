@@ -1,1 +1,0 @@
-/home/ubuntu/Desktop/master/BPDA/project/BPDA-Project/nft-academic/target/debug/nft-academic-meta: /home/ubuntu/Desktop/master/BPDA/project/BPDA-Project/nft-academic/meta/src/main.rs /home/ubuntu/Desktop/master/BPDA/project/BPDA-Project/nft-academic/src/nft_academic.rs
