@@ -1,4 +1,4 @@
-import { SmartContractTransactionsFactory } from "@multiversx/sdk-core";
+import { IPlainTransactionObject, SmartContractTransactionsFactory } from "@multiversx/sdk-core";
 import { TransactionsFactoryConfig } from "@multiversx/sdk-core";
 import { Address } from "@multiversx/sdk-core";
 import { AbiRegistry } from "@multiversx/sdk-core";
@@ -87,10 +87,10 @@ export class NftAcademic {
     }
 
     enrollInstitution(options: {
-        name: Uint8Array;
+        name: string;
         nativeTransferAmount?: bigint;
         tokenTransfers?: TokenTransfer[];
-    }): Transaction {
+    }): IPlainTransactionObject {
         let args: any[] = [];
 
         args.push(options.name);
@@ -105,10 +105,10 @@ export class NftAcademic {
             tokenTransfers: options.tokenTransfers,
         });
 
-        return tx;
+        return tx.toPlainObject();
     }
 
-    whitelistAddress(options: { name: Uint8Array }): Transaction {
+    whitelistAddress(options: { name: string }): IPlainTransactionObject {
         let args: any[] = [];
 
         args.push(options.name);
@@ -121,7 +121,7 @@ export class NftAcademic {
             arguments: args,
         });
 
-        return tx;
+        return tx.toPlainObject();
     }
 
     /**

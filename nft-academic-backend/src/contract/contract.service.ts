@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { NftAcademic } from './nftAcademic';
-import { Address } from '@multiversx/sdk-core/out';
+import { Address, IPlainTransactionObject } from '@multiversx/sdk-core/out';
+import { EnrollInstitution, WhitelistAddress } from './entities';
 
 @Injectable()
 export class ContractService {
@@ -9,8 +10,12 @@ export class ContractService {
 
   constructor(){}
 
-  enrollInstitution(): string {
-    throw new Error('Method not implemented.');
+  enrollInstitution(body: EnrollInstitution): IPlainTransactionObject {
+    return this.nftAcademicContract.enrollInstitution({
+      name: body.name,
+      nativeTransferAmount: body.amount,
+      tokenTransfers: [],
+    })
   }
   async getEnrolledInstitution(address: string) {
     return await this.nftAcademicContract.getEnrolledInstitutions({address: Address.fromBech32(address)})
@@ -20,8 +25,8 @@ export class ContractService {
    return await this.nftAcademicContract.getEnrollmentFee();
   }
 
-  whitelistAddress(): string {
-    throw new Error('Method not implemented.');
+  whitelistAddress(body: WhitelistAddress): IPlainTransactionObject {
+    return this.nftAcademicContract.whitelistAddress({name: body.name});
   }
   getWhiteListedAddresses(): string {
     throw new Error('Method not implemented.');

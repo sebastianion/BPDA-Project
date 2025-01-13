@@ -1,6 +1,8 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ContractService } from './contract.service';
 import { ApiTags } from '@nestjs/swagger';
+import { EnrollInstitution, WhitelistAddress } from './entities';
+import { IPlainTransactionObject } from '@multiversx/sdk-core/out';
 
 @ApiTags('/contract')
 @Controller('/contract')
@@ -10,8 +12,10 @@ export class ContractController {
 ) {}
 
   @Post('/enroll-institution')
-  enrollInstitution(): string {
-    return this.contractService.enrollInstitution();
+  enrollInstitution(
+    @Body() body: EnrollInstitution
+  ): IPlainTransactionObject {
+    return this.contractService.enrollInstitution(body);
   }
 
   @Get('/enrolled-institution/:address')
@@ -28,12 +32,14 @@ export class ContractController {
   }
 
   @Post('/whitelist-address')
-  whitelistAddress(): string {
-    return this.contractService.whitelistAddress();
+  whitelistAddress(
+    @Body() body: WhitelistAddress
+  ): IPlainTransactionObject {
+    return this.contractService.whitelistAddress(body);
   }
 
-  @Get('/whitelisted-addresses')
-  getWhiteListedAddresses(): string {
-    return this.contractService.getWhiteListedAddresses();
-  }
+  // @Get('/whitelisted-addresses')
+  // getWhiteListedAddresses(): string {
+  //   return this.contractService.getWhiteListedAddresses();
+  // }
 }
