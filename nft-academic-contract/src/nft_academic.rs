@@ -30,7 +30,7 @@ pub trait NftAcademic {
         let caller = self.blockchain().get_caller();
         let payment_amount = self.call_value().egld_value().clone_value();
         require!(
-            payment_amount > self.enrollment_fee().get(),
+            payment_amount >= self.enrollment_fee().get(),
             "Registration fee is incorrect; please check and try again"
         );
 
@@ -56,17 +56,15 @@ pub trait NftAcademic {
 
     #[only_owner]
     #[endpoint(whitelistAddress)]
-    fn whitelist_address(&self, name: &ManagedBuffer) {
-        let caller = self.blockchain().get_caller();
-
-        let whitelist_mapper = self.whitelisted_addresses(&caller);
+    fn whitelist_address(&self, name: &ManagedBuffer, address: &ManagedAddress) {
+        let whitelist_mapper = self.whitelisted_addresses(&address);
         require!(
             whitelist_mapper.is_empty(),
             "Address was already whitelisted"
         );
 
         let institution = Institution {
-            address: caller.clone(),
+            address: address.clone(),
             name: name.clone()
         };
 

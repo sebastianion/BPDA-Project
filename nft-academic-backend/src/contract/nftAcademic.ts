@@ -43,9 +43,17 @@ export class NftAcademic {
                     name: "whitelistAddress",
                     onlyOwner: true,
                     mutability: "mutable",
-                    inputs: [{ name: "name", type: "bytes" }],
+                    inputs: [
+                        {
+                            name: "name",
+                            type: "bytes"
+                        },
+                        {
+                            name: "address",
+                            type: "Address"
+                        }
+                    ],
                     outputs: [],
-                    payableInTokens: [],
                 },
                 {
                     name: "getEnrolledInstitutions",
@@ -79,7 +87,7 @@ export class NftAcademic {
         this.abi = AbiRegistry.create(plainAbi);
         const config = new TransactionsFactoryConfig({ chainID: "D" });
         this.factory = new SmartContractTransactionsFactory({ config: config, abi: this.abi });
-        this.contractAddress = Address.fromBech32("erd1qqqqqqqqqqqqqpgqryqcqw8aeewzhqy6u0flvj6wmaplw4ua7jxswf4d04");
+        this.contractAddress = Address.fromBech32("erd1qqqqqqqqqqqqqpgqrshyxuctpa9nftlr3vmhy6d73sxtv0p37jxsc7nqkm");
 
         const api = new ApiNetworkProvider("https://devnet-api.multiversx.com");
         const queryRunner = new QueryRunnerAdapter({ networkProvider: api });
@@ -108,10 +116,11 @@ export class NftAcademic {
         return tx.toPlainObject();
     }
 
-    whitelistAddress(options: { name: string }): IPlainTransactionObject {
+    whitelistAddress(options: { name: string, address: string }): IPlainTransactionObject {
         let args: any[] = [];
 
         args.push(options.name);
+        args.push(options.address);
 
         const tx = this.factory.createTransactionForExecute({
             sender: Address.empty(),
@@ -127,7 +136,7 @@ export class NftAcademic {
     /**
      *This is a view method. This will run a vm-query.
      */
-    async getEnrolledInstitutions(options: { address: Address }): Promise<any[]> {
+    async getEnrolledInstitutions(options: { address: string }): Promise<any[]> {
         let args: any[] = [];
 
         args.push(options.address);

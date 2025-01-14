@@ -63,8 +63,10 @@ export const TransactionSection = () => {
       console.log("THIS IS BODY INPUT: ", bodyInput)
     }
     const body = {
-      name: bodyInput
+      name: bodyInput.split(',')[0],
+      address: bodyInput.split(',')[1]
     }
+    console.log(body)
     try{
     const tx = await axios.post(
       `http://localhost:3000/contract/whitelist-address`, 
@@ -85,6 +87,34 @@ export const TransactionSection = () => {
   }
   }
 
+  const enrollInstitution = async () => {
+    if(bodyInput){
+      console.log("THIS IS BODY INPUT: ", bodyInput)
+    }
+    const body = {
+      name: bodyInput.split(',')[0],
+      amount: bodyInput.split(',')[1]
+    }
+    console.log(body)
+    try{
+    const tx = await axios.post(
+      `http://localhost:3000/contract/enroll-institution`, 
+      body
+    );
+    console.log("I GENERATED enroll institution  Tx")
+    tx.data.sender = address;
+    setTx(Transaction.fromPlainObject(tx.data));
+    // setBodyInput('TRANSACTION IS GENERATED!');
+    // console.log(tx.data);
+    clearBody();
+    setBodyInput(JSON.stringify(tx.data, null, 2));
+  } catch(error){ 
+    if(axios.isAxiosError(error)) {
+      setBodyInput(error.message)
+    }
+    
+  }
+  }
   // const example = async () => {
   //   setBodyInput('')
   //   if(bodyInput){
@@ -124,8 +154,8 @@ export const TransactionSection = () => {
       },
       signWithoutSending: false,
     });
-    console.log("TRANSACTION SENT SUCCESSFULLY !")
-    setBodyInput("TRANSACTION SENT SUCCESSFULLY !")
+    // console.log("TRANSACTION SENT SUCCESSFULLY !")
+    // setBodyInput("TRANSACTION SENT SUCCESSFULLY !")
   };
 
   useEffect(() => {
@@ -165,6 +195,12 @@ export const TransactionSection = () => {
               >
                 White List Address Tx
               </button>
+          <button
+                onClick={enrollInstitution}
+                className="bg-mvx-blue hover:scale-105 text-black font-medium py-1 px-2 my-2 rounded-lg text-base"
+              >
+                Enroll Institution Tx
+            </button>
           <div className="flex flex-col">
             
 

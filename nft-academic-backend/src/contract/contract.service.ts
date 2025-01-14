@@ -18,7 +18,9 @@ export class ContractService {
     })
   }
   async getEnrolledInstitution(address: string) {
-    return await this.nftAcademicContract.getEnrolledInstitutions({address: Address.fromBech32(address)})
+    const response = await this.nftAcademicContract.getEnrolledInstitutions({address})
+    const decodedresponse = {address: response[0].address.toString() ?? 'error', name: response[0].name?.toString() ?? 'error'};
+    return decodedresponse;
   }
 
   async getEnrollmentFee() {
@@ -26,7 +28,7 @@ export class ContractService {
   }
 
   whitelistAddress(body: WhitelistAddress): IPlainTransactionObject {
-    return this.nftAcademicContract.whitelistAddress({name: body.name});
+    return this.nftAcademicContract.whitelistAddress({name: body.name, address: body.address});
   }
   getWhiteListedAddresses(): string {
     throw new Error('Method not implemented.');
