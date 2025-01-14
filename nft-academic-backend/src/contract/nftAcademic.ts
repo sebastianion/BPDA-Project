@@ -99,7 +99,7 @@ export class NftAcademic {
             sender: Address.empty(),
             contract: this.contractAddress,
             function: "enrollInstitution",
-            gasLimit: 0n,
+            gasLimit: 100000000n,
             arguments: args,
             nativeTransferAmount: options.nativeTransferAmount,
             tokenTransfers: options.tokenTransfers,
@@ -117,7 +117,7 @@ export class NftAcademic {
             sender: Address.empty(),
             contract: this.contractAddress,
             function: "whitelistAddress",
-            gasLimit: 0n,
+            gasLimit: 100000000n,
             arguments: args,
         });
 
