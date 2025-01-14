@@ -31,7 +31,7 @@ pub trait NftAcademic {
         let payment_amount = self.call_value().egld_value().clone_value();
         require!(
             payment_amount >= self.enrollment_fee().get(),
-            "Registration fee is incorrect; please check and try again"
+            "Registration fee is too small; please check enrollment fee and try again"
         );
 
         require!(
